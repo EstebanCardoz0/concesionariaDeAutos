@@ -1,13 +1,13 @@
-package com.consesionaria.consesionaria;
+package com.concesionaria.concesionaria;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ConsesionariaApplication {
+public class ConcesionariaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsesionariaApplication.class, args);
+		SpringApplication.run(ConcesionariaApplication.class, args);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.consesionaria.consesionaria.service;
+package com.concesionaria.concesionaria.service;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.consesionaria.consesionaria.entity.Auto;
-import com.consesionaria.consesionaria.repository.IAutoRepository;
+import com.concesionaria.concesionaria.entity.Auto;
+import com.concesionaria.concesionaria.repository.IAutoRepository;
 
 @Service
 public class AutoService implements IAutoService {

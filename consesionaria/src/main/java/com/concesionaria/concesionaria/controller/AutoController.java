@@ -1,4 +1,4 @@
-package com.consesionaria.consesionaria.controller;
+package com.concesionaria.concesionaria.controller;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.consesionaria.consesionaria.entity.Auto;
-import com.consesionaria.consesionaria.exception.MiException;
-import com.consesionaria.consesionaria.service.IAutoService;
+import com.concesionaria.concesionaria.entity.Auto;
+import com.concesionaria.concesionaria.exception.MiException;
+import com.concesionaria.concesionaria.service.IAutoService;
 
 @RestController
 @RequestMapping("/auto")

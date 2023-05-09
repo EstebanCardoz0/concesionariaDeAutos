@@ -1,9 +1,9 @@
-package com.consesionaria.consesionaria.service;
+package com.concesionaria.concesionaria.service;
 
 import java.util.List;
 
-import com.consesionaria.consesionaria.entity.Auto;
-import com.consesionaria.consesionaria.exception.MiException;
+import com.concesionaria.concesionaria.entity.Auto;
+import com.concesionaria.concesionaria.exception.MiException;
 
 public interface IAutoService {
     

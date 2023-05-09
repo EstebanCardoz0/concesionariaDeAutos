@@ -1,6 +1,8 @@
-package com.consesionaria.consesionaria.entity;
+package com.concesionaria.concesionaria.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Auto {
 
-    @Id     
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)     
     private Long id;
     private String modelo;
     private String marca;
