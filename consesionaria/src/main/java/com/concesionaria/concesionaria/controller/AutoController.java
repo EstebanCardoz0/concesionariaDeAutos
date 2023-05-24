@@ -26,6 +26,8 @@ public class AutoController {
 
     @PostMapping("/crear")
     public String crearAuto(@RequestBody Auto auto) throws MiException {
+        validar(auto.getId(), auto.getModelo(), auto.getMarca(),
+                auto.getColor(), auto.getPatente(), auto.getCantidadPuertas());
 
         autoSer.crearAuto(auto);
         return "Auto creado exitosamente";
@@ -62,6 +64,22 @@ public class AutoController {
             String color,
             String patente,
             int cantidadPuertas) throws MiException {
+
+        if (id == null) {
+            throw new MiException("El id no puede ser nulo");
+        }
+        if (modelo.isEmpty()) {
+            throw new MiException("El modelo no puede ser nulo o estar vacío");
+        }
+        if (marca.isEmpty()) {
+            throw new MiException("La marca no puede ser nula o estar vacía");
+        }
+        if (color.isEmpty()) {
+            throw new MiException("El color no puede ser nulo o estar vacía");
+        }
+        if (patente.isEmpty()) {
+            throw new MiException("La patente no puede ser nula o estar vacía");
+        }
 
     }
 
