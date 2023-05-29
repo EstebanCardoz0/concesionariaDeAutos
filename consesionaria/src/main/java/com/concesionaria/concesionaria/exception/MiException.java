@@ -1,4 +1,4 @@
-package com.consesionaria.consesionaria.exception;
+package com.concesionaria.concesionaria.exception;
 
 public class MiException extends Exception {
     

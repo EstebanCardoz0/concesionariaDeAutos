@@ -21,6 +21,6 @@ public class Auto {
     private String marca;
     private String color;
     private String patente;
-    private int cantidadPuertas;
+    private Integer cantidadPuertas;
 
 }

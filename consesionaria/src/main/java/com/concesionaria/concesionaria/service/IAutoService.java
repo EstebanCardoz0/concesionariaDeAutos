@@ -6,16 +6,21 @@ import com.concesionaria.concesionaria.entity.Auto;
 import com.concesionaria.concesionaria.exception.MiException;
 
 public interface IAutoService {
-    
-public void crearAuto(Auto auto) ;
 
-public List <Auto> listarAutos ();
+    public void crearAuto(Auto auto) throws MiException;
 
-public Auto modificarAuto(Auto auto);
+    public List<Auto> listarAutos();
 
-public void borrarAuto(Long id);
+    public Auto modificarAuto(Auto auto)throws MiException;
 
-public Auto traerAuto (Long id);
+    public void borrarAuto(Long id);
 
+    public Auto traerAuto(Long id);
 
+    public void validar(Long id,
+            String modelo,
+            String marca,
+            String color,
+            String patente,
+            Integer cantidadPuertas) throws MiException;
 }
