@@ -17,7 +17,7 @@ public interface IAutoService {
 
     public Auto traerAuto(Long id);
 
-    public void validar(Long id,
+    public void validar(
             String modelo,
             String marca,
             String color,

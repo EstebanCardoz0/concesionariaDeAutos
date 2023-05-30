@@ -41,13 +41,28 @@ public class AutoController {
 
     @GetMapping("/registrar")
     public String crearAuto() {
-        return "index.html";
+        return "alta.html";
     }
 
     @PostMapping("/crear")
-    public String crearAuto(@RequestParam String modelo) throws MiException {
-        System.out.println(modelo);
-        // autoSer.crearAuto(auto);
+    public String crearAuto(@RequestParam String modelo,
+            @RequestParam String marca, @RequestParam String color, @RequestParam String patente,
+            @RequestParam Integer cantidadPuertas) {
+        Auto auto = new Auto();
+     
+        auto.setModelo(modelo);
+        auto.setMarca(marca);
+        auto.setColor(color);
+        auto.setPatente(patente);
+        auto.setCantidadPuertas(cantidadPuertas);
+        try {
+            autoSer.crearAuto(auto);
+        } catch (MiException e) {
+
+            // Logger.getLogger(AutoController.class.getName()).log(Level.SEVERE,null, e);
+            e.printStackTrace();
+            return "alta.html";
+        }
         return "index.html";
     }
 

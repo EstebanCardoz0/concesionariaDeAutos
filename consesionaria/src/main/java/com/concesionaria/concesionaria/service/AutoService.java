@@ -21,7 +21,7 @@ public class AutoService implements IAutoService {
     @Transactional
     public void crearAuto(Auto auto) throws MiException {
 
-        validar(auto.getId(), auto.getModelo(), auto.getMarca(), auto.getColor(),
+        validar( auto.getModelo(), auto.getMarca(), auto.getColor(),
                 auto.getPatente(), auto.getCantidadPuertas());
 
         autoRepo.save(auto);
@@ -38,7 +38,7 @@ public class AutoService implements IAutoService {
     @Transactional
     public Auto modificarAuto(Auto aut) throws MiException {
 
-        validar(aut.getId(), aut.getModelo(), aut.getMarca(), aut.getColor(),
+        validar( aut.getModelo(), aut.getMarca(), aut.getColor(),
                 aut.getPatente(), aut.getCantidadPuertas());
 
         autoRepo.save(aut);
@@ -61,26 +61,26 @@ public class AutoService implements IAutoService {
 
     }
 
-    public void validar(Long id,
+    public void validar(
             String modelo,
             String marca,
             String color,
             String patente,
             Integer cantidadPuertas) throws MiException {
 
-        if (id == null) {
-            throw new MiException("El id no puede ser nulo");
-        }
-        if (modelo.isEmpty()) {
+        // if (id == null) {
+        //     throw new MiException("El id no puede ser nulo");
+        
+        if (modelo.isEmpty()|| modelo==null) {
             throw new MiException("El modelo no puede ser nulo o estar vacío");
         }
-        if (marca.isEmpty()) {
+        if (marca.isEmpty()|| marca==null) {
             throw new MiException("La marca no puede ser nula o estar vacía");
         }
-        if (color.isEmpty()) {
+        if (color.isEmpty()|| color==null) {
             throw new MiException("El color no puede ser nulo o estar vacía");
         }
-        if (patente.isEmpty()) {
+        if (patente.isEmpty()|| patente==null) {
             throw new MiException("La patente no puede ser nula o estar vacía");
         }
         if (cantidadPuertas == null) {
