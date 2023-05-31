@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de autos</title>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id del auto</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Color</th>
+                <th>Patente</th>
+                <th>Cantidad de puertas</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody th:each="auti:${autos}">
+            <tr>
+                <th th:text="${auti.id}"></th>
+                <td th:text="${auti.modelo}"></td>
+                <td th:text="${auti.marca}"></td>
+                <td th:text="${auti.color}"></td>
+                <td th:text="${auti.patente}"></td>
+                <td th:text="${auti.cantidadPuertas}"></td>
+                <td>
+                    <a th:href="@{/auto/modificar...}"><i></i>Modificar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+
+</html>

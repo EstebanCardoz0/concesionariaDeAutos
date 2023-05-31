@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,14 +56,24 @@ public class AutoController {
         auto.setCantidadPuertas(cantidadPuertas);
         try {
             autoSer.crearAuto(auto);
-            model.put("Éxito", "El auto fue cargado correctamente");
+            model.put("exito", "El auto fue cargado correctamente");
 
         } catch (MiException e) {
 
-            model.put("Error", e.getMessage());
+            model.put("error", e.getMessage());
             return "alta.html";
         }
         return "index.html";
+    }
+
+    @GetMapping("/listas")
+    public String listas(ModelMap modelo) {
+
+        List<Auto> autos = autoSer.listarAutos();
+
+        modelo.addAttribute("autos", autos);
+
+        return "lista.html";
     }
 
     @GetMapping("/listar")
@@ -84,7 +95,14 @@ public class AutoController {
         return "Auto borrado exitosamente";
     }
 
-    @PutMapping("/modificar")
+    @GetMapping("cambiar/{id}")
+    public String cambiar(@PathVariable String id, ModelMap model) {
+
+
+        return null;
+    }
+
+    @PutMapping("/modificar}")
     public Auto modificarAuto(@RequestBody Auto auto) throws MiException {
 
         return autoSer.modificarAuto(auto);

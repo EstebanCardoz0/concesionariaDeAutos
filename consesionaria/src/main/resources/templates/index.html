@@ -10,10 +10,25 @@
 </head>
 
 <body>
-<header <i class="fa fa-align-center" aria-hidden="true"><h2>ESTE ES EL INDEX</h2></i></header>
+    <header <i class="fa fa-align-center" aria-hidden="true">
+        <h2>ESTE ES EL INDEX</h2></i>
+    </header>
 
 
+    <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError"> i
+        <div class="card-body">
+            <h5 class="card-title">Error</h5>
+            <p class="card-text" th:text="${error}"></p>
+        </div>
+    </div>
 
+
+    <div th:if="${exito != null}" class="Card text-white bg-success mb-3 mt-3 mensajeExito">
+        <div class="card-body">
+            <h5 class="card-title">Exito!</h5>
+            <p class="card- be th o" th:text="${exito}"></p>
+        </div>
+    </div>
 
 
 

@@ -25,18 +25,18 @@
 
 
 
-        <div th:if="${Error != null}" class="card text-white bg-danger mb-3 mensajeError"> i
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError"> i
             <div class="card-body">
-                <hS class="card-title">Error</h5>
-                    <p class="card-text" th:text="${Error}"></p>
+                <h5 class="card-title">Error</h5>
+                    <p class="card-text" th:text="${error}"></p>
             </div>
         </div>
 
 
-        <div th:if="${Éxito != null}" class="Card text-white bg-success mb-3 mt-3 mensajeExito">
+        <div th:if="${exito != null}" class="Card text-white bg-success mb-3 mt-3 mensajeExito">
             <div class="card-body">
-                <hS class="card-title">Exito!</h5>
-                    <p class="card- be th o"  th:text="${Éxito}"></p>
+                <h5 class="card-title">Exito!</h5>
+                    <p class="card- be th o" th:text="${exito}"></p>
             </div>
         </div>
 

@@ -13,6 +13,10 @@ public interface IAutoService {
 
     public Auto modificarAuto(Auto auto)throws MiException;
 
+    public void cambiar(String nombre, String id) throws MiException;
+    
+    public Auto getOne(String id);
+
     public void borrarAuto(Long id);
 
     public Auto traerAuto(Long id);
