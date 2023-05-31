@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.concesionaria.concesionaria.entity.Auto;
 import com.concesionaria.concesionaria.exception.MiException;
 import com.concesionaria.concesionaria.service.IAutoService;
@@ -47,9 +45,9 @@ public class AutoController {
     @PostMapping("/crear")
     public String crearAuto(@RequestParam String modelo,
             @RequestParam String marca, @RequestParam String color, @RequestParam String patente,
-            @RequestParam Integer cantidadPuertas) {
+            @RequestParam Integer cantidadPuertas, ModelMap model) {
         Auto auto = new Auto();
-     
+
         auto.setModelo(modelo);
         auto.setMarca(marca);
         auto.setColor(color);
@@ -57,10 +55,11 @@ public class AutoController {
         auto.setCantidadPuertas(cantidadPuertas);
         try {
             autoSer.crearAuto(auto);
+            model.put("Éxito", "El auto fue cargado correctamente");
+
         } catch (MiException e) {
 
-            // Logger.getLogger(AutoController.class.getName()).log(Level.SEVERE,null, e);
-            e.printStackTrace();
+            model.put("Error", e.getMessage());
             return "alta.html";
         }
         return "index.html";
