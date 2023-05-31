@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="ISO-8859-1">
@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <header><h2>Carga el auto acá</h2>
+    <header>
+        <h2>Carga el auto acá</h2>
     </header>
 
     <form action="/auto/crear" method="post">
@@ -22,6 +23,23 @@
         <input type="number" name="cantidadPuertas" placeholder="Cantidad de puertas">
         <button type="submit">Subir</button>
 
+
+
+        <div th:if="${Error != null}" class="card text-white bg-danger mb-3 mensajeError"> i
+            <div class="card-body">
+                <hS class="card-title">Error</h5>
+                    <p class="card-text" th:text="${Error}"></p>
+            </div>
+        </div>
+
+
+        <div th:if="${Éxito != null}" class="Card text-white bg-success mb-3 mt-3 mensajeExito">
+            <div class="card-body">
+                <hS class="card-title">Exito!</h5>
+                    <p class="card- be th o"  th:text="${Éxito}"></p>
+            </div>
+        </div>
+
     </form>
 
 
@@ -29,10 +47,9 @@
 
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
