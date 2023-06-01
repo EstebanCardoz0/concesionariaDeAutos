@@ -96,10 +96,10 @@ public class AutoController {
     }
 
     @GetMapping("cambiar/{id}")
-    public String cambiar(@PathVariable String id, ModelMap model) {
+    public String cambiar(@PathVariable Long id, ModelMap model) {
 
-
-        return null;
+        model.put("auto", autoSer.getOne(id));
+        return "auto_modificar.html";
     }
 
     @PutMapping("/modificar}")

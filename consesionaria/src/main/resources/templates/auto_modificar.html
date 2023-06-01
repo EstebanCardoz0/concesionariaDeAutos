@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar auto</title>
+</head>
+
+<body>
+    <header>
+        <h2>Carga el auto acá</h2>
+    </header>
+
+    <form th:action="@{/auto/cambiar/__${auto.id}__" method="post">
+
+        <input type="text" name="modelo" placeholder="Nombre del modelo">
+        <input type="text" name="marca" placeholder="Marca">
+        <input type="text" name="color" placeholder="Color">
+        <input type="text" name="patente" placeholder="Patente">
+        <input type="number" name="cantidadPuertas" placeholder="Cantidad de puertas">
+        <button type="submit">Subir</button>
+
+
+
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError"> i
+            <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+
+
+        <div th:if="${exito != null}" class="Card text-white bg-success mb-3 mt-3 mensajeExito">
+            <div class="card-body">
+                <h5 class="card-title">Exito!</h5>
+                <p class="card- be th o" th:text="${exito}"></p>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+
+</html>
