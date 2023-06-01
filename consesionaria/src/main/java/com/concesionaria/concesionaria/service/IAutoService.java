@@ -13,9 +13,9 @@ public interface IAutoService {
 
     public Auto modificarAuto(Auto auto)throws MiException;
 
-    public void cambiar(String nombre, String id) throws MiException;
+    public void cambiar(Auto aut, Long id) throws MiException;
     
-    public Auto getOne(String id);
+    public Auto getOne(Long id);
 
     public void borrarAuto(Long id);
 

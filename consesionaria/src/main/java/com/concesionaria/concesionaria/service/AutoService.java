@@ -1,6 +1,7 @@
 package com.concesionaria.concesionaria.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -90,14 +91,28 @@ public class AutoService implements IAutoService {
     }
 
     @Override
-    public void cambiar(String nombre, String id) throws MiException {
-
-        throw new UnsupportedOperationException("Unimplemented method 'cambiar'");
+    public Auto getOne(Long id) {
+        return autoRepo.getOne(id);
     }
 
     @Override
-    public Auto getOne(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOne'");
+    public void cambiar(Auto aut, Long id) throws MiException {
+
+        validar(aut.getModelo(), aut.getMarca(), aut.getColor(),
+                aut.getPatente(), aut.getCantidadPuertas());
+
+        Optional<Auto> respuesta = autoRepo.findById(id);
+
+        if (respuesta.isPresent()) {
+            Auto auto = respuesta.get();
+            auto.setModelo(aut.getModelo());
+            auto.setMarca(aut.getMarca());
+            auto.setColor(aut.getColor());
+            auto.setPatente(aut.getPatente());
+            auto.setCantidadPuertas(aut.getCantidadPuertas());
+
+            autoRepo.save(auto);
+        }
+
     }
 }
