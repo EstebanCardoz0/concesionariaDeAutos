@@ -13,7 +13,8 @@ public interface IAutoService {
 
     public Auto modificarAuto(Auto auto)throws MiException;
 
-    public void cambiar(Auto aut, Long id) throws MiException;
+    public void cambiar(Long id, String modelo, String marca, String color,
+    String patente, Integer cantidadPuertas) throws MiException;
     
     public Auto getOne(Long id);
 

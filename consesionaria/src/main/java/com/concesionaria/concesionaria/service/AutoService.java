@@ -96,20 +96,20 @@ public class AutoService implements IAutoService {
     }
 
     @Override
-    public void cambiar(Auto aut, Long id) throws MiException {
+    public void cambiar(Long id, String modelo, String marca, String color,
+            String patente, Integer cantidadPuertas) throws MiException {
 
-        validar(aut.getModelo(), aut.getMarca(), aut.getColor(),
-                aut.getPatente(), aut.getCantidadPuertas());
+        validar(modelo, marca, color, patente, cantidadPuertas);
 
         Optional<Auto> respuesta = autoRepo.findById(id);
 
         if (respuesta.isPresent()) {
             Auto auto = respuesta.get();
-            auto.setModelo(aut.getModelo());
-            auto.setMarca(aut.getMarca());
-            auto.setColor(aut.getColor());
-            auto.setPatente(aut.getPatente());
-            auto.setCantidadPuertas(aut.getCantidadPuertas());
+            auto.setModelo(modelo);
+            auto.setMarca(marca);
+            auto.setColor(color);
+            auto.setPatente(patente);
+            auto.setCantidadPuertas(cantidadPuertas);
 
             autoRepo.save(auto);
         }

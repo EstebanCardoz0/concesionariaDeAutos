@@ -102,7 +102,21 @@ public class AutoController {
         return "auto_modificar.html";
     }
 
-    @PutMapping("/modificar}")
+    @PostMapping("/cambiar/{id}")
+    public String cambiar(@PathVariable Long id, String modelo, String marca, String color,
+            String patente, Integer cantidadPuertas, ModelMap model) {
+
+        try {
+            autoSer.cambiar(id, modelo, marca, color, patente, cantidadPuertas);
+            return "redirect:../listas";
+        } catch (MiException e) {
+            model.put("error", e.getMessage());
+            return "auto_modificar.html";
+        }
+
+    }
+
+    @PutMapping("/modificar")
     public Auto modificarAuto(@RequestBody Auto auto) throws MiException {
 
         return autoSer.modificarAuto(auto);
