@@ -95,7 +95,7 @@ public class AutoController {
         return "Auto borrado exitosamente";
     }
 
-    @GetMapping("cambiar/{id}")
+    @GetMapping("/cambiar/{id}")
     public String cambiar(@PathVariable Long id, ModelMap model) {
 
         model.put("auto", autoSer.getOne(id));
