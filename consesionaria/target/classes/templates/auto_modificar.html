@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar auto</title>
+</head>
+
+<body>
+    <header>
+        <h2>Carga el auto acá</h2>
+    </header>
+
+    <form th:action="@{/auto/cambiar/__${auto.id}__}" method="post">
+
+
+        <input hidden th:value="${id}" name="id" type="text">
+
+        <div>
+            <label>Modificar Auto</label>
+            <input th:value="${auto.modelo}" type="text" name="modelo">
+            <input th:value="${auto.marca}" type="text" name="marca">
+            <input th:value="${auto.color}" type="text" name="color">
+            <input th:value="${auto.patente}" type="text" name="patente">
+            <input th:value="${auto.cantidadPuertas}" type="number" name="cantidad de puertas">
+
+        </div>
+
+        <button type="submit">Actualizar</button>
+
+
+
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError"> 
+            <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+
+
+        <div th:if="${exito != null}" class="Card text-white bg-success mb-3 mt-3 mensajeExito">
+            <div class="card-body">
+                <h5 class="card-title">Exito!</h5>
+                <p class="card- be th o" th:text="${exito}"></p>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+
+</html>
