@@ -3,10 +3,11 @@ package com.concesionaria.concesionaria.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.concesionaria.concesionaria.entity.Auto;
 import com.concesionaria.concesionaria.exception.MiException;
@@ -96,6 +97,7 @@ public class AutoService implements IAutoService {
     }
 
     @Override
+    @Transactional
     public void cambiar(Long id, String modelo, String marca, String color,
             String patente, Integer cantidadPuertas) throws MiException {
 

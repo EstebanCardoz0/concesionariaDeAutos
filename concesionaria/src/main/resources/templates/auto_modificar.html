@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar auto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -16,7 +19,8 @@
     <form th:action="@{/auto/cambiar/__${auto.id}__}" method="post">
 
 
-        <input hidden th:value="${id}" name="id" type="text">
+        <input hidden th:value="${id}" name="id" type="number">
+        <p>ID: <span th:text="${auto.id}"></span></p>
 
         <div>
             <label>Modificar Auto</label>
@@ -24,7 +28,7 @@
             <input th:value="${auto.marca}" type="text" name="marca">
             <input th:value="${auto.color}" type="text" name="color">
             <input th:value="${auto.patente}" type="text" name="patente">
-            <input th:value="${auto.cantidadPuertas}" type="number" name="cantidad de puertas">
+            <input th:value="${auto.cantidadPuertas}" type="number" name="cantidadPuertas">
 
         </div>
 
@@ -32,7 +36,7 @@
 
 
 
-        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError"> 
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
             <div class="card-body">
                 <h5 class="card-title">Error</h5>
                 <p class="card-text" th:text="${error}"></p>
@@ -48,6 +52,9 @@
         </div>
 
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 
 </body>
 
