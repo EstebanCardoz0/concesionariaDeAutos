@@ -11,11 +11,11 @@ public interface IAutoService {
 
     public List<Auto> listarAutos();
 
-    public Auto modificarAuto(Auto auto)throws MiException;
+    public Auto modificarAuto(Auto auto) throws MiException;
 
     public void cambiar(Long id, String modelo, String marca, String color,
-    String patente, Integer cantidadPuertas) throws MiException;
-    
+            String patente, Integer cantidadPuertas) throws MiException;
+
     public Auto getOne(Long id);
 
     public void borrarAuto(Long id);

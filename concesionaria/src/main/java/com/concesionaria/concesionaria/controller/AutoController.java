@@ -25,11 +25,11 @@ public class AutoController {
     @Autowired
     IAutoService autoSer;
 
-    @GetMapping("/index")
-    public String index() {
+    // @GetMapping("/index")
+    // public String index() {
 
-        return "index.html";
-    }
+    //     return "index.html";
+    // }
 
     // @GetMapping("/index")
     // public ModelAndView index() {
@@ -37,7 +37,6 @@ public class AutoController {
     // modelAndView.setViewName("index.html");
     // return modelAndView;
     // }
-
     @GetMapping("/registrar")
     public String crearAuto() {
         return "alta.html";
