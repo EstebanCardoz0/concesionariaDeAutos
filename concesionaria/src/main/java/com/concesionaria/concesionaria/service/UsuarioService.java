@@ -7,14 +7,18 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.concesionaria.concesionaria.entity.Usuario;
 import com.concesionaria.concesionaria.enumeraciones.Rol;
 import com.concesionaria.concesionaria.exception.MiException;
 import com.concesionaria.concesionaria.repository.IUsuarioRepository;
 
-public class UsuarioService implements IUsuarioService {
+@Service
+public class UsuarioService implements IUsuarioService, UserDetailsService {
 
     @Autowired
     IUsuarioRepository UsuarioRepo;
@@ -27,7 +31,7 @@ public class UsuarioService implements IUsuarioService {
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setEmail(email);
-        usuario.setPassword(password);
+        usuario.setPassword(new BCryptPasswordEncoder().encode(password));
         usuario.setRol(Rol.USER);
         UsuarioRepo.save(usuario);
 
