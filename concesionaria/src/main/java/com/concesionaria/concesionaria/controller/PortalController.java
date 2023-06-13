@@ -1,5 +1,7 @@
 package com.concesionaria.concesionaria.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.concesionaria.concesionaria.entity.Usuario;
 import com.concesionaria.concesionaria.exception.MiException;
 import com.concesionaria.concesionaria.service.IUsuarioService;
 
@@ -58,8 +61,13 @@ public class PortalController {
 
     @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/inicio")
-    public String inicio() {
+    public String inicio(HttpSession session) {
 
+        Usuario logueado = (Usuario) session.getAttribute("usuariosession");
+
+        if (logueado.getRol().toString().equals("ADMIN")) {
+            return "redirect:/admin/dashboard"; 
+        }
         return "inicio.html";
     }
 }
