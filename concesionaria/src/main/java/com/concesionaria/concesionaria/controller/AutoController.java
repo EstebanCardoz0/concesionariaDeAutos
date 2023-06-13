@@ -104,10 +104,7 @@ public class AutoController {
     @PostMapping("/cambiar/{id}")
     public String cambiar(@PathVariable Long id, String modelo, String marca, String color,
             String patente, Integer cantidadPuertas, ModelMap model) {
-        System.out.println("el id es:" + id);
-        System.out.println("el id es:" + id);
-        System.out.println("el id es:" + id);
-        System.out.println("el id es:" + id);
+    
         try {
             autoSer.cambiar(id, modelo, marca, color, patente, cantidadPuertas);
             return "redirect:../listas";

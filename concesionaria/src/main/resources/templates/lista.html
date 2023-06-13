@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" >
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
                 <th>Color</th>
                 <th>Patente</th>
                 <th>Cantidad de puertas</th>
-                <th>Acciones</th>
+                <th sec:authorize="hasRole('ADMIN')">Acciones</th>
             </tr>
         </thead>
         <tbody th:each="auti:${autos}">
@@ -27,11 +27,11 @@
                 <th th:text="${auti.id}"></th>
                 <td th:text="${auti.modelo}"></td>
                 <td th:text="${auti.marca}"></td>
-                <td th:text="${auti.color}"></td> 
+                <td th:text="${auti.color}"></td>
                 <td th:text="${auti.patente}"></td>
                 <td th:text="${auti.cantidadPuertas}"></td>
                 <td>
-                    <a th:href="@{/auto/cambiar/__${auti.id}__}"><i></i>Modificar</a>
+                    <a sec:authorize="hasRole('ADMIN')" th:href="@{/auto/cambiar/__${auti.id}__}"><i></i>Modificar</a>
                 </td>
             </tr>
         </tbody>
