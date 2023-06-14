@@ -14,6 +14,10 @@
     <h1>Este es el inicio</h1>
     <h3 th:if="${session.usuariosession !=null}" th:text="'Hola '+ ${session.usuariosession.nombre}+'!'"></h3>
 
+    <a th:if="${session.usuariosession.imagen != null}" class="d-flex align-items-center">
+        <img class="logo" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}">
+    </a>
+
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -23,6 +27,23 @@
             <li><a class="dropdown-item" href="/logout">Cerrar SesiÃ³n</a></li>
         </ul>
     </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Perfil
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" th:href="@{/perfil}">Editar Perfil</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+
+            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </li>
+
 
 
 

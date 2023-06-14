@@ -30,4 +30,6 @@ public class Usuario {
     private Rol rol;
     @OneToOne
     private Imagen imagen;
+
+ 
 }
