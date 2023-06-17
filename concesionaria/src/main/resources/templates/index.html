@@ -3,19 +3,34 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <title>Concesionaria</title>
+    <title>MET Concesionaria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="/css/formulario.css"> -->
 </head>
 
 <body>
-    <header <i class="fa fa-align-center" aria-hidden="true">
-        <h2>ESTE ES EL INDEX</h2></i>
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2"><a href="/login">Ingresar</a></button>
+                    <button type="button" class="btn btn-warning" ><a href="/registrar">Registrarse</a></button>
+                </div>
+            </div>
+        </div>
     </header>
 
+<h1 align="center">Bienvenido a Concesionaria MET</h1>
 
-    <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError"> 
+    <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
         <div class="card-body">
             <h5 class="card-title">Error</h5>
             <p class="card-text" th:text="${error}"></p>
