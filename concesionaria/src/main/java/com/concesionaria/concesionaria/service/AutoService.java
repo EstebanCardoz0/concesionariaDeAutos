@@ -33,42 +33,12 @@ public class AutoService implements IAutoService {
         return autoRepo.findAll();
     }
 
-    @Override
-    @Transactional
-    public Auto modificarAuto(Auto aut) throws MiException {
-
-        validar(aut.getModelo(), aut.getMarca(), aut.getColor(),
-                aut.getPatente(), aut.getCantidadPuertas());
-
-        autoRepo.save(aut);
-
-        return traerAuto(aut.getId());
-    }
-
-    @Override
-    @Transactional
-    public void borrarAuto(Long id) {
-
-        autoRepo.deleteById(id);
-
-    }
-
-    @Override
-    public Auto traerAuto(Long id) {
-
-        return autoRepo.findById(id).orElse(null);
-
-    }
-
     public void validar(
             String modelo,
             String marca,
             String color,
             String patente,
             Integer cantidadPuertas) throws MiException {
-
-        // if (id == null) {
-        // throw new MiException("El id no puede ser nulo");
 
         if (modelo.isEmpty() || modelo == null) {
             throw new MiException("El modelo no puede ser nulo o estar vacío");
@@ -77,7 +47,7 @@ public class AutoService implements IAutoService {
             throw new MiException("La marca no puede ser nula o estar vacía");
         }
         if (color.isEmpty() || color == null) {
-            throw new MiException("El color no puede ser nulo o estar vacía");
+            throw new MiException("El color no puede ser nulo o estar vacío");
         }
         if (patente.isEmpty() || patente == null) {
             throw new MiException("La patente no puede ser nula o estar vacía");
@@ -114,4 +84,5 @@ public class AutoService implements IAutoService {
         }
 
     }
+
 }

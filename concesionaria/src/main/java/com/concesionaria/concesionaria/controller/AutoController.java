@@ -25,18 +25,6 @@ public class AutoController {
     @Autowired
     IAutoService autoSer;
 
-    // @GetMapping("/index")
-    // public String index() {
-
-    //     return "index.html";
-    // }
-
-    // @GetMapping("/index")
-    // public ModelAndView index() {
-    // ModelAndView modelAndView = new ModelAndView();
-    // modelAndView.setViewName("index.html");
-    // return modelAndView;
-    // }
     @GetMapping("/registrar")
     public String crearAuto() {
         return "alta.html";
@@ -75,25 +63,6 @@ public class AutoController {
         return "lista.html";
     }
 
-    @GetMapping("/listar")
-    public List<Auto> listarAutos() {
-
-        return autoSer.listarAutos();
-    }
-
-    @GetMapping("/traer/{id}")
-    public Auto traerAuto(@PathVariable Long id) {
-
-        return autoSer.traerAuto(id);
-    }
-
-    @DeleteMapping("/borrar/{id}")
-    public String borrarAuto(@PathVariable Long id) {
-
-        autoSer.borrarAuto(id);
-        return "Auto borrado exitosamente";
-    }
-
     @GetMapping("/cambiar/{id}")
     public String cambiar(@PathVariable Long id, ModelMap model) {
         model.put("auto", autoSer.getOne(id));
@@ -104,7 +73,7 @@ public class AutoController {
     @PostMapping("/cambiar/{id}")
     public String cambiar(@PathVariable Long id, String modelo, String marca, String color,
             String patente, Integer cantidadPuertas, ModelMap model) {
-    
+
         try {
             autoSer.cambiar(id, modelo, marca, color, patente, cantidadPuertas);
             return "redirect:../listas";
@@ -113,12 +82,6 @@ public class AutoController {
             return "auto_modificar.html";
         }
 
-    }
-
-    @PutMapping("/modificar")
-    public Auto modificarAuto(@RequestBody Auto auto) throws MiException {
-
-        return autoSer.modificarAuto(auto);
     }
 
 }

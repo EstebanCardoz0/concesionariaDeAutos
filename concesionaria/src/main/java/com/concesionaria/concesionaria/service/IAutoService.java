@@ -7,25 +7,20 @@ import com.concesionaria.concesionaria.exception.MiException;
 
 public interface IAutoService {
 
-    public void crearAuto(Auto auto) throws MiException;
+        public void crearAuto(Auto auto) throws MiException;
 
-    public List<Auto> listarAutos();
+        public List<Auto> listarAutos();
 
-    public Auto modificarAuto(Auto auto) throws MiException;
 
-    public void cambiar(Long id, String modelo, String marca, String color,
-            String patente, Integer cantidadPuertas) throws MiException;
+        public void cambiar(Long id, String modelo, String marca, String color,
+                        String patente, Integer cantidadPuertas) throws MiException;
 
-    public Auto getOne(Long id);
+        public Auto getOne(Long id);
 
-    public void borrarAuto(Long id);
-
-    public Auto traerAuto(Long id);
-
-    public void validar(
-            String modelo,
-            String marca,
-            String color,
-            String patente,
-            Integer cantidadPuertas) throws MiException;
+        public void validar(
+                        String modelo,
+                        String marca,
+                        String color,
+                        String patente,
+                        Integer cantidadPuertas) throws MiException;
 }

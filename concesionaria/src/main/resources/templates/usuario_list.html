@@ -4,13 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuarios</title>
+    <title>Lista de Usuarios - MET Concesionaria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
 </head>
 
 <body>
+    <header class="p-3 text-bg-dark">
+        <div class="text-end">
+
+            <button type="button" class="btn btn-warning"><a href="/inicio"
+                    style="text-decoration: none; color: inherit;">Volver al inicio</a></button>
+        </div>
+    </header>
     <div class="container m-5">
 
-        <table class="table table-dark">
+        <table class="table ">
             <thead class="align-items-center">
                 <tr>
                     <th scope="col">Id del Usuario</th>
@@ -18,7 +28,6 @@
                     <th scope="col">Foto de Perfil</th>
                     <th scope="col">Rol</th>
                     <th scope="col">Cambiar Rol</th>
-                    <th scope="col">Modificar</th>
 
                 </tr>
             </thead>
@@ -26,7 +35,7 @@
                 <tr>
                     <th scope="row" th:text="${usuario.id}"></th>
                     <td th:text="${usuario.nombre}"></td>
-                    <td <a><img th:if="${usuario.imagen != null}" class="logo"
+                    <td <a><img width="150px" height="100px" th:if="${usuario.imagen != null}" class="logo"
                             th:src="@{/imagen/perfil/__${usuario.id}__}"></a>
                     </td>
 
@@ -37,10 +46,6 @@
                                 class="fas fa-feather-alt"></i>Cambiar</a>
                     </td>
 
-                    <td>
-                        <a th:href="@{/perfil/__${usuario.id}__}"><i class="fas fa-feather-alt"></i>
-                            Modificar</a>
-                    </td>
 
                 </tr>
 
@@ -63,13 +68,17 @@
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <a th:href="@{/admin/dashboard }" class="btn btn-primary my-2">Volver</a>
+                    <a style="color: black;border-color: black;background-color: orange;" th:href="@{/admin/dashboard }"
+                        class="btn btn-primary my-2">Volver</a>
                     </p>
                 </div>
             </div>
         </section>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
